@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="obj"
+            type="com.practice.myapplication.data.source.model.Data.Result" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/img_profile_pic"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_user_placeholder"
+                app:civ_background_color="@color/colorWhite"
+                app:civ_border_color="@color/grey"
+                app:civ_border_width="1dp"
+                app:civ_shadow="false"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:profile_pic="@{obj.picture.medium}"
+                app:profile_pic_error="@{@drawable/ic_user_placeholder}" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@{obj.name.title+` `+obj.name.first+` `+obj.name.last}"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_profile_pic"
+                tools:text="John Doe" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@{obj.dob.age+` years, `+obj.email}"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                tools:text="johndoe@gmail.com" />
+
+            <TextView
+                android:id="@+id/tv_addrress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="@{obj.location.street+`,`+obj.location.city+``+obj.location.state+`-`+obj.location.postcode}"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_email"
+                tools:text="Malad,Mumbai-401101" />
+
+
+            <TextView
+                android:id="@+id/tv_decline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_bg_2"
+                android:gravity="center"
+                android:paddingStart="25dp"
+                android:paddingLeft="25dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="25dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="10dp"
+                android:text="@string/decline"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/guideline_vertical_central"
+                app:layout_constraintTop_toBottomOf="@+id/tv_addrress" />
+
+
+            <TextView
+                android:id="@+id/tv_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_bg_1"
+                android:gravity="center"
+                android:paddingStart="25dp"
+                android:paddingLeft="25dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="25dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="10dp"
+                android:text="@string/accept"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@+id/guideline_vertical_central"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_addrress" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline_vertical_central"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>
